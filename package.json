@@ -1,0 +1,67 @@
+{
+  "name": "@21gram-consulting/sanity-schema-org",
+  "version": "1.0.0",
+  "description": "Sanity Schema.org Plugin: The ultimate content modeling ",
+  "author": "21Gram Consulting <engineering@21gram.consulting>",
+  "license": "MIT",
+  "source": "./src/index.ts",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./lib/cjs/index.js",
+      "default": "./lib/esm/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "lib",
+    "v2-incompatible.js",
+    "sanity.json"
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "lint": "eslint .",
+    "prebuild": "npm run clean && plugin-kit verify-package --silent",
+    "build": "parcel build --no-cache",
+    "watch": "parcel watch",
+    "link-watch": "plugin-kit link-watch",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/21GramConsulting/sanity-schema-org.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "@sanity/incompatible-plugin": "^1.0.4"
+  },
+  "devDependencies": {
+    "@sanity/plugin-kit": "^3.1.7",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-sanity": "^6.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "parcel": "^2.8.3",
+    "prettier": "^2.8.8",
+    "react": "^17.0.0 || ^18.0.0",
+    "rimraf": "^5.0.0",
+    "sanity": "^3.0.0-dev-preview.15",
+    "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "sanity": "dev-preview"
+  },
+  "bugs": {
+    "url": "https://github.com/21GramConsulting/sanity-schema-org/issues"
+  },
+  "homepage": "https://github.com/21GramConsulting/sanity-schema-org#readme"
+}
